@@ -22,6 +22,8 @@ public class Login : ControllerBase
     public object RealizarLogin(string login, string senha)
     {
         Usuario user = new Usuario(login, senha);
+
+        user.search(user.GetLogin());
         return new
         {
             login = user.GetLogin(),

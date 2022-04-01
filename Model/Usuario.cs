@@ -1,4 +1,6 @@
-﻿namespace Model;
+﻿using System.Data.SqlClient;
+
+namespace Model;
 public class Usuario
 {
     private string login;
@@ -28,6 +30,16 @@ public class Usuario
     public void SetPassword(string password)
     {
         this.password=password;
+    }
+
+    public int search(string login)
+    {
+        Connect con = new Connect();
+
+        con.createConnect();
+        SqlCommand command = new SqlCommand("Select id from Usuario Where login = " + login, con.connection);
+
+        return 0;
     }
 
 
